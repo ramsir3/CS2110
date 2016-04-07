@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<test-suite>
+		<test-case>
+		<name>even_sum(0) == 0</name>
+		<has-max-executions>1</has-max-executions>
+		<max-executions>1000000</max-executions>
+		<randomize>1</randomize>
+		<input>
+			<test-subr>
+				<name>EVEN_SUM</name>
+				<stack>xF000</stack>
+				<r7>x5000</r7>
+				<r5>xCAFE</r5>
+				<params>0</params>
+			</test-subr>
+		</input>
+		<output>
+			<test-subr>
+				<answer>0</answer>
+				<points>
+					<answer>4</answer>
+					<params>4</params>
+					<r7>4</r7>
+					<r6>4</r6>
+					<r5>4</r5>
+				</points>
+				<deductions-per-mistake>4</deductions-per-mistake>
+			</test-subr>
+		</output>
+    </test-case>
+
+    <test-case>
+		<name>even_sum(2) == 2</name>
+		<has-max-executions>1</has-max-executions>
+		<max-executions>1000000</max-executions>
+		<randomize>1</randomize>
+		<input>
+			<test-subr>
+				<name>EVEN_SUM</name>
+				<stack>xF000</stack>
+				<r7>x5000</r7>
+				<r5>xCAFE</r5>
+				<params>2</params>
+			</test-subr>
+		</input>
+		<output>
+			<test-subr>
+				<answer>2</answer>
+				<points>
+					<answer>4</answer>
+					<params>4</params>
+					<r7>4</r7>
+					<r6>4</r6>
+					<r5>4</r5>
+				</points>
+				<deductions-per-mistake>4</deductions-per-mistake>
+			</test-subr>
+		</output>
+    </test-case>
+    
+    <test-case>
+		<name>even_sum(9) == 20</name>
+		<has-max-executions>1</has-max-executions>
+		<max-executions>1000000</max-executions>
+		<randomize>1</randomize>
+		<input>
+			<test-subr>
+				<name>EVEN_SUM</name>
+				<stack>xF000</stack>
+				<r7>x5000</r7>
+				<r5>xCAFE</r5>
+				<params>9</params>
+			</test-subr>
+		</input>
+		<output>
+			<test-subr>
+				<answer>20</answer>
+				<points>
+					<answer>4</answer>
+					<params>4</params>
+					<r7>4</r7>
+					<r6>4</r6>
+					<r5>4</r5>
+				</points>
+				<deductions-per-mistake>4</deductions-per-mistake>
+			</test-subr>
+		</output>
+    </test-case>
+    
+    <test-case>
+		<name>even_sum(12) == 42</name>
+		<has-max-executions>1</has-max-executions>
+		<max-executions>1000000</max-executions>
+		<randomize>1</randomize>
+		<input>
+			<test-subr>
+				<name>EVEN_SUM</name>
+				<stack>xF000</stack>
+				<r7>x5000</r7>
+				<r5>xCAFE</r5>
+				<params>12</params>
+			</test-subr>
+		</input>
+		<output>
+			<test-subr>
+				<answer>42</answer>
+				<points>
+					<answer>4</answer>
+					<params>4</params>
+					<r7>4</r7>
+					<r6>4</r6>
+					<r5>4</r5>
+				</points>
+				<deductions-per-mistake>4</deductions-per-mistake>
+			</test-subr>
+		</output>
+    </test-case>
+    
+    <test-case>
+		<name>even_sum(5) == 6</name>
+		<has-max-executions>1</has-max-executions>
+		<max-executions>1000000</max-executions>
+		<randomize>1</randomize>
+		<input>
+			<test-subr>
+				<name>EVEN_SUM</name>
+				<stack>xF000</stack>
+				<r7>x5000</r7>
+				<r5>xCAFE</r5>
+				<params>5</params>
+			</test-subr>
+		</input>
+		<output>
+			<test-subr>
+				<answer>6</answer>
+				<points>
+					<answer>4</answer>
+					<params>4</params>
+					<r7>4</r7>
+					<r6>4</r6>
+					<r5>4</r5>
+				</points>
+				<deductions-per-mistake>4</deductions-per-mistake>
+			</test-subr>
+		</output>
+	</test-case>
+
+
+
+
+</test-suite>

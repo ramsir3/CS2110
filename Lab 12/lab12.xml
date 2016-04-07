@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<test-suite>    
+    <test-case>
+        <name>checksum({x5555}) = x5555</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value><address>LENGTH</address><value>1</value></test-value>
+            <test-array><address>ARRAY</address><value>x5555</value></test-array>
+        </input>
+        <output>
+            <test-value points="25"><address>CHECKSUM</address><value>x5555</value></test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>checksum({x2345, x5432}) = x7777</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value><address>LENGTH</address><value>2</value></test-value>
+            <test-array><address>ARRAY</address><value>x2345,x5432</value></test-array>
+        </input>
+        <output>
+            <test-value points="25"><address>CHECKSUM</address><value>x7777</value></test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>checksum({x9154, x2763, x4749}) = x0000</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value><address>LENGTH</address><value>3</value></test-value>
+            <test-array><address>ARRAY</address><value>x9154,x2763,x4749</value></test-array>
+        </input>
+        <output>
+            <test-value points="25"><address>CHECKSUM</address><value>x0000</value></test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>checksum({x4567, x23C6, x9869, x4873, xDC51}) = x265A</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>1000000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value><address>LENGTH</address><value>5</value></test-value>
+            <test-array><address>ARRAY</address><value>x4567,x23C6,x9869,x4873,xDC51</value></test-array>
+        </input>
+        <output>
+            <test-value points="25"><address>CHECKSUM</address><value>x265A</value></test-value>
+        </output>
+    </test-case>    
+</test-suite>

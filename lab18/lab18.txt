@@ -1,0 +1,31 @@
+===============================================================================
+CS2110                              Lab 18                          Spring 2016
+===============================================================================
+ 
+Objective: Learning about the nuances of using pointers in C
+ 
+Try to collaborate with your classmates if you're stuck, and don'thesitate to
+ask the TA's for help. If you are stuck on one part, or not clear about what
+it's asking, feel free to ask. Remember, we are here to help you :)
+
+
+
+Problem
+-------
+Fill in the provided template file with the appropriate code to complete the
+tests in the code. When you are finished, build the code into an executable
+with "make", then run it with "./lab18". Show the results to a TA for credit.
+
+
+
+Hints
+-----
+Remember from HW7/TL4 what happens when you call a function: parameters are
+copied onto the stack, so modifying those parameters in the function will only
+change their values within that function call. So, you can't just pass in ints
+to a swap function. You'll need to pass in something else if you want to change
+the original ints.
+
+The man pages are your friend! If you don't know what a function does, then in
+a terminal, type "man toupper" or "man strcpy" or whatever the name is.
+

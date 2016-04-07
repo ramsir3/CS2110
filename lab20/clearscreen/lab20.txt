@@ -1,0 +1,145 @@
+===============================================================================
+CS2110                               Lab 20                         Spring 2016
+===============================================================================
+ 
+Objective: Use DMA to perform memset/memcpy in GBA games
+ 
+This is a lab where you will use DMA in two different ways to copy data on the
+GBA.
+
+Note: You may not use the provided .s files for your homework.
+
+
+
+DMA on the GBA
+--------------
+Direct Memory Access (DMA) is a feature cooked into the hardware of the GBA,
+whose purpose is to perform fast copies of data in memory. The reason DMA is
+fast is because of all the software overhead of having to track index variables
+and load from memory multiple times (which is slow, and you'll learn why in CS
+2200).
+
+For example, this is the body of the loop in the given clearscreen.c when
+assembled into ARM code:
+
+    ldr r3, .L5
+    ldr r2, [r3]
+    ldr r3, [r7, #4]
+    lsl r3, r3, #1
+    add r2, r2, r3
+    mov r3, #248
+    lsl r3, r3, #2
+    strh r3, [r2]
+    ldr r3, [r7, #4]
+    add r3, r3, #1
+    str r3, [r7, #4]
+    ldr r2, [r7, #4]
+    ldr r3, .L5+4
+    cmp r2, r3
+    ble .L3
+
+All that has to be done for just one copy, but DMA hardware can allow the
+copies to be performed in just a few clock cycles instead.
+
+There are 4 channels for performing DMA on the GBA, in decreasing priority:
+
+    0: Timing-critical transfers and internal optimizations
+    1: DirectSound A FIFO transfers
+    2: DirectSound B FIFO transfers
+    3: General purpose transfers
+
+For the purpose of this lab and HW09, you should be using channel 3 to do your
+copying. If you choose to put streaming music in your game, you might use
+channel 1, or channels 1 and 2 for stereo. Only use channel 0 if you're doing
+something highly time-sensitive like hblank transfers (an advanced topic).
+
+DMA works by writing data to 3 locations in memory for that channel. Each
+channel has a source address (src), a destination address (dst), and a control
+vector (cnt) which tell the hardware respectively where to copy from, where to
+copy to, and how to copy.
+
+The src and dst fields must be written first. The control vector will be a
+bitwise OR of whichever available options you would like to apply to the
+transfer, as well as the number of copies to make. Note that the default copy
+size is 16 bits per copy. If you would like to transfer ints instead of shorts,
+you can use the DMA_32 flag. You can't transfer individual bytes though.
+
+    DMA[DMA_CHANNEL_3].src = videoBuffer;
+    DMA[DMA_CHANNEL_3].dst = videoBuffer + 240 * 80;
+    DMA[DMA_CHANNEL_3].cnt = (240 * 80) |
+                             DMA_SOURCE_INCREMENT |
+                             DMA_DESTINATION_INCREMENT |
+                             DMA_ON;
+
+The above example will copy the first half of the videoBuffer into the second
+half.
+
+    DMA[DMA_CHANNEL_3].src = videoBuffer + 240 * 80 - 1;
+    DMA[DMA_CHANNEL_3].dst = videoBuffer + 240 * 80;
+    DMA[DMA_CHANNEL_3].cnt = (240 * 80) |
+                             DMA_SOURCE_DECREMENT |
+                             DMA_DESTINATION_INCREMENT |
+                             DMA_ON;
+
+The above example will copy the first half of the videoBuffer backwards into
+the second half.
+
+    DMA[DMA_CHANNEL_3].src = &colorVar;
+    DMA[DMA_CHANNEL_3].dst = videoBuffer + 240 * 5;
+    DMA[DMA_CHANNEL_3].cnt = 240 |
+                             DMA_SOURCE_FIXED |
+                             DMA_DESTINATION_INCREMENT |
+                             DMA_ON;
+
+The above example will set all the pixels in row 5 to the color of colorVar.
+Note that src takes an address, not an actual color value! The color needs to
+be stored in a variable before it can be used by the DMA controller.
+
+
+
+Assignment
+----------
+In both of the provided C files, edit them appropriately to replace the given
+for loops with DMA. main is designed to halt your code after some amount of
+time if the drawing code is too slow, so even though the for loop
+implementations in the given C file do exactly what we want, they will not be
+able to draw the full screen. However, DMA is much faster and will be capable
+of drawing it all before time runs out!
+
+    clearscreen:
+
+        An image will be drawn to the screen. Your job is to use DMA to clear
+        the screen after it has been drawn. A correct solution won't use any
+        iteration at all. You must clear the screen to the color green to get
+        credit for this part.
+
+    copydata:
+
+        A fullscreen image and a row number will be passed into the function,
+        which should draw the specified row only to the videoBuffer. A correct
+        solution won't use any iteration at all.
+
+
+
+Hints
+-----
+If you create a variable to hold a color for a DMA_SOURCE_FIXED transfer and
+it seems like the DMA controller is making the screen black instead of whatever
+color you wanted, it's probably because the optimizer saw that you're never
+reading the value of that variable (just it's address), and so your resulting
+object file doesn't contain the store at all. You're going to need to use a
+certain keyword Bill talked about in class to force the color value to be
+stored in your variable.
+
+
+
+Submission Instructions
+-----------------------
+
+Please submit all files as a tar archive:
+
+tar -czvf lab20.tar.gz clearscreen copydata
+
+Be sure to practice safe submission! If the above command fails due to being in
+the wrong folder, tar will still create the archive, but it will be empty.
+

@@ -1,0 +1,38 @@
+===============================================================================
+CS2110                               Lab 21                         Spring 2016
+===============================================================================
+ 
+Objective: Learn about problems you may encounter with/without pointer use
+
+Try to collaborate with your classmates if you're stuck, and don'thesitate to
+ask the TA's for help. If you are stuck on one part, or not clear about what
+it's asking, feel free to ask. Remember, we are here to help you :)
+
+
+
+Problem
+-------
+Fill in the provided template file with the appropriate code to complete the
+tests in the code. When you are finished, build the code into an executable
+with "make", then run it with "./lab21". Show the results to a TA for credit.
+
+Please submit the file lab21.c to Canvas.
+
+
+
+Hints
+-----
+sizeof does NOT give you the number of elements in an array, but it can be USED
+to get the number of elements in an array. Google how to do it!
+
+Remember from HW7/TL4 what happens when you call a function: parameters are
+copied onto the stack, so modifying those parameters in the function will only
+change their values within that function call. So, you can't just pass in ints
+to a swap function. You'll need to pass in something else if you want to change
+the original ints.
+
+Likewise, if you have a pointer to some data and you copy the value of that
+pointer, then you now have two pointers to the same data. What do you think
+will happen if you change the value that one pointer points to, then try to
+read the value using the other pointer?
+

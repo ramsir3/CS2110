@@ -1,0 +1,21 @@
+;;===============================
+;;Name: YOUR NAME HERE
+;;===============================
+
+.orig x3000
+
+AND R0, R0, 0; Clear reg 0
+AND R1, R1, 0; Clear reg 1
+AND R2, R2, 0; Clear reg 2
+ADD R0, R0, A; Put value A in R0
+ADD R1, R1, B; Put value B in R1
+NOT R0, R0;
+NOT R1, R1;
+AND R2, R0, R1;
+NOT R2, R2;
+STR ANSWER, R2;
+	
+A       .fill 6
+B       .fill 13
+ANSWER  .fill 0		; This answer should contain A | B when finished.
+.end

@@ -1,0 +1,156 @@
+<test-suite>
+    <test-case>
+        <name>timedlab3(2,-1)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>10000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>ASKED_VAL</address>
+                <value>2</value>
+            </test-value>
+			<test-array>
+                <address>ARRAY</address>
+                <value>2,-1</value>
+            </test-array>
+        </input>
+        <output>
+             <test-value condition="equals" points="7">
+                <address>ASKED_IND</address>
+                <value>0</value>
+            </test-value>
+			<test-value condition="equals" points="7">
+                <address>ODD_CNT</address>
+                <value>0</value>
+            </test-value>
+			<test-value condition="equals" points="6">
+                <address>LENGTH</address>
+                <value>1</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>timedlab3(2,3,4,5,1,6,7,8,9-1)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>10000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>ASKED_VAL</address>
+                <value>4</value>
+            </test-value>
+			<test-array>
+                <address>ARRAY</address>
+                <value>2,3,4,5,1,6,7,8,9,-1</value>
+            </test-array>
+        </input>
+        <output>
+             <test-value condition="equals" points="7">
+                <address>ASKED_IND</address>
+                <value>2</value>
+            </test-value>
+			<test-value condition="equals" points="7">
+                <address>ODD_CNT</address>
+                <value>5</value>
+            </test-value>
+			<test-value condition="equals" points="6">
+                <address>LENGTH</address>
+                <value>9</value>
+            </test-value>
+        </output>
+    </test-case>
+    
+    <test-case>
+        <name>timedlab3(5,5,5,5,10,5,4,-1)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>10000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>ASKED_VAL</address>
+                <value>10</value>
+            </test-value>
+			<test-array>
+                <address>ARRAY</address>
+                <value>5,5,5,5,10,5,4,-1</value>
+            </test-array>
+
+        </input>
+        <output>
+             <test-value condition="equals" points="7">
+                <address>ASKED_IND</address>
+                <value>4</value>
+            </test-value>
+			<test-value condition="equals" points="7">
+                <address>ODD_CNT</address>
+                <value>5</value>
+            </test-value>
+			<test-value condition="equals" points="6">
+                <address>LENGTH</address>
+                <value>7</value>
+            </test-value>
+        </output>
+    </test-case>
+    
+    <test-case>
+        <name>timedlab3(0x9,0x7,0x5,0x3,0x999,-1)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>10000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>ASKED_VAL</address>
+                <value>0x9</value>
+            </test-value>
+			<test-array>
+                <address>ARRAY</address>
+                <value>9,7,5,3,0x999,-1</value>
+            </test-array>
+
+        </input>
+        <output>
+             <test-value condition="equals" points="7">
+                <address>ASKED_IND</address>
+                <value>0</value>
+            </test-value>
+			<test-value condition="equals" points="7">
+                <address>ODD_CNT</address>
+                <value>5</value>
+            </test-value>
+			<test-value condition="equals" points="6">
+                <address>LENGTH</address>
+                <value>5</value>
+            </test-value>
+        </output>
+    </test-case>
+    <test-case>
+        <name>timedlab3(0x82,0x96,0x42,0x12,0x32,0x116,0x20,0x88,0x46,-1)</name>
+        <has-max-executions>1</has-max-executions>
+        <max-executions>10000</max-executions>
+        <randomize>1</randomize>
+        <input>
+            <test-value>
+                <address>ASKED_VAL</address>
+                <value>0x46</value>
+            </test-value>
+			<test-array>
+                <address>ARRAY</address>
+                <value>0x82,0x96,0x42,0x12,0x32,0x116,0x20,0x88,0x46,-1</value>
+            </test-array>
+        </input>
+        <output>
+             <test-value condition="equals" points="7">
+                <address>ASKED_IND</address>
+                <value>8</value>
+            </test-value>
+			<test-value condition="equals" points="7">
+                <address>ODD_CNT</address>
+                <value>0</value>
+            </test-value>
+			<test-value condition="equals" points="6">
+                <address>LENGTH</address>
+                <value>9</value>
+            </test-value>
+        </output>
+    </test-case>
+</test-suite>
